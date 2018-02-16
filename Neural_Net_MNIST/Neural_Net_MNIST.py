@@ -218,11 +218,7 @@ def model(X_train, Y_train, X_test, Y_test, learning_rate=0.0001,
             if print_cost == True and epoch % 5 == 0:                       # append the epoch_cost to the list of costs after every 5 epochs
                 costs.append(epoch_cost)
 
-        print(costs)
-        print(np.squeeze(costs))
-        print(np.squeeze(costs).shape)
-        # plot the cost
-        # plt.plot(np.squeeze(costs))
+                
         plt.plot(costs)                                         # plot costs data
         plt.ylabel('cost')                                      # label the y-axis
         plt.xlabel('iterations (per tens)')                     # label the x-axis
@@ -232,7 +228,7 @@ def model(X_train, Y_train, X_test, Y_test, learning_rate=0.0001,
         # lets save the parameters in a variable
         parameters = sess.run(parameters)                       # run the sess to retrieve trained values of parameters
         print("Parameters have been trained!")
-        # print("parameters: ", parameters)
+        print("parameters: ", parameters)
 
         # Calculate the correct predictions
         correct_prediction = tf.equal(tf.argmax(Z3, axis=0), tf.argmax(Y, axis=0))
@@ -242,7 +238,7 @@ def model(X_train, Y_train, X_test, Y_test, learning_rate=0.0001,
         print(" correct_prediction" , correct_prediction.eval({X: X_test, Y: Y_test}, session = sess))
 
         # Calculate accuracy on the test set
-        accuracy = tf.reduce_mean(tf.cast(correct_prediction, "float"))
+        accuracy = tf.multiply(tf.reduce_mean(tf.cast(correct_prediction, "float")), 100)
         # tf.cast - casts the tensor 'correct_predictions' to a new type 'float'  - converted from bool type to float type
         # tf.reduce_mean - calculates the mean
         # tf.multiply - multiplies mean by 100 to get the accuracy as a percentage
