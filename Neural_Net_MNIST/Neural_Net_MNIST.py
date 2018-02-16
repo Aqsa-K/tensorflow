@@ -286,11 +286,11 @@ if __name__ == "__main__":
     np.random.seed(1)
 
     # Example of a picture - plot a sample digit picture
-    # plt.gray()                                              # Initialize a gray figure
-    # index = 0                                               # Define the index
-    # plt.matshow(X_train_orig[index].reshape(8,8))           # Display a sample digit - matshow displays an array as a matrix
-    # plt.show()                                              # Show the plot
-    # print (Y_train_orig[0])                                 # Print the digit value or class label
+    plt.gray()                                              # Initialize a gray figure
+    index = 0                                               # Define the index
+    plt.matshow(X_train_orig[index].reshape(8,8))           # Display a sample digit - matshow displays an array as a matrix
+    plt.show()                                              # Show the plot
+    print (Y_train_orig[0])                                 # Print the digit value or class label
 
 
     # Flatten the training and test images
